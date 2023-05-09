@@ -44,13 +44,14 @@ async function main() {
   console.log("Customers:", customers);
 
   // Submit customers to customerUrl using POST method
-  await fetch(customerUrl, {
+  let response = await fetch(customerUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(customers),
   });
+  console.log(response);
 
   // Fetch categories
   const categoriesResult = await client.execute({
@@ -61,13 +62,14 @@ async function main() {
   console.log("Categories:", categories);
 
   // Submit categories to categoryUrl using POST method
-  await fetch(categoryUrl, {
+  response = await fetch(categoryUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(categories),
   });
+  console.log(response);
 }
 
 main();
